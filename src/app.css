@@ -1,0 +1,105 @@
+:root {
+	--bg: #14110f;
+	--bg-raised: #201c19;
+	--bg-sunken: #0c0a09;
+	--line: #3a332d;
+	--text: #ece4d8;
+	--text-dim: #a89c8c;
+	/* Gold has one meaning: things you own. Everything else is ink on dark. */
+	--owned: #c9a25f;
+	--owned-ink: #1a1408;
+	--danger: #d0605a;
+	--radius: 12px;
+	--tap: 44px;
+	color-scheme: dark;
+}
+
+@font-face {
+	font-family: 'Arkham Icons';
+	src: url('./lib/assets/arkham-icons.woff') format('woff');
+	font-display: block;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family:
+		system-ui,
+		-apple-system,
+		'Segoe UI',
+		Roboto,
+		sans-serif;
+	font-size: 16px;
+	line-height: 1.4;
+	-webkit-tap-highlight-color: transparent;
+}
+
+a {
+	color: var(--text);
+	text-decoration-color: var(--text-dim);
+	text-underline-offset: 0.15em;
+}
+
+button {
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-weight: 400;
+}
+
+/* A game symbol from the icon font; see src/lib/arkham/icons.ts. */
+.icon {
+	display: inline-block;
+	font-size: 1.15em;
+	line-height: 1;
+	vertical-align: -0.12em;
+}
+
+.icon::before {
+	content: attr(data-glyph);
+	font-family: 'Arkham Icons', Georgia, serif;
+	font-style: normal;
+	font-weight: 400;
+	font-synthesis: none;
+}
+
+/* A symbol with its name, as card text shows it. */
+.term {
+	white-space: nowrap;
+	font-weight: 600;
+}
+
+.term .icon {
+	margin-right: 0.2em;
+}
+
+/* Cards print the wild icon as a question mark, which the font lacks. */
+.icon-wild::before {
+	font-weight: 700;
+}
+
+.icon-per_investigator {
+	font-size: 0.8em;
+	vertical-align: super;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
